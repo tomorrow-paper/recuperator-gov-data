@@ -33,28 +33,7 @@ impl <T: Requester> Recuperator<AddressRequest, AddressResponse> for AddressRecu
 impl Default for AddressRecuperator<Client> {
 
     fn default() -> Self {
-        let client = Builder::new(DATA_GOV_API_URL).into();
+        let client = Builder::https(DATA_GOV_API_URL).into();
         AddressRecuperator::new(client)
-    }
-}
-
-#[cfg(test)]
-mod tests {
-    use ::address::*;
-    use tomorrow_recuperator::Recuperator;
-
-    #[test]
-    fn test() {
-        let query = "42 rue d'Ulm";
-        let request = AddressRequest::new(query);
-
-        let recuperator = AddressRecuperator::default();
-        let result = recuperator.compute(request);
-
-        assert!(result.is_ok());
-
-        let record = result.unwrap().record;
-
-        assert_eq!(record.query, query);
     }
 }
