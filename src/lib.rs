@@ -11,7 +11,7 @@ pub mod address;
 #[cfg(test)]
 mod tests {
     
-    use tomorrow_http::mock::MockClient;
+    use tomorrow_http::json::mock::MockClient;
     use tomorrow_recuperator::Recuperator;
 
     use ::address::*;

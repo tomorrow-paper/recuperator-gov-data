@@ -1,6 +1,7 @@
 use tomorrow_core::Result;
 use tomorrow_recuperator::Recuperator;
-use tomorrow_http::*;
+use tomorrow_http::Builder;
+use tomorrow_http::json::*;
 
 use super::models::Record;
 use super::{AddressRequest, AddressResponse};
